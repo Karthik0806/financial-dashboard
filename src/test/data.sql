@@ -1,0 +1,64 @@
+---- =========================
+---- ROLES
+---- =========================
+--INSERT INTO role (id, name) VALUES (RANDOM_UUID(), 'ROLE_ADMIN');
+--INSERT INTO role (id, name) VALUES (RANDOM_UUID(), 'ROLE_ANALYST');
+--INSERT INTO role (id, name) VALUES (RANDOM_UUID(), 'ROLE_VIEWER');
+--
+--
+---- =========================
+---- USERS
+---- Passwords:
+---- admin123 / analyst123 / viewer123
+---- =========================
+--
+--INSERT INTO users (id, name, email, password, status, created_at, updated_at)
+--VALUES (RANDOM_UUID(), 'Admin User', 'admin@test.com',
+--'$2a$10$7QJQ9rQyFvQxFZQWlYj2Hu7Gzq6d9bW7lZbJ3W7dJ3W7dJ3W7dJ3W',
+--'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+--
+--INSERT INTO users (id, name, email, password, status, created_at, updated_at)
+--VALUES (RANDOM_UUID(), 'Analyst User', 'analyst@test.com',
+--'$2a$10$7QJQ9rQyFvQxFZQWlYj2Hu7Gzq6d9bW7lZbJ3W7dJ3W7dJ3W7dJ3W',
+--'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+--
+--INSERT INTO users (id, name, email, password, status, created_at, updated_at)
+--VALUES (RANDOM_UUID(), 'Viewer User', 'viewer@test.com',
+--'$2a$10$7QJQ9rQyFvQxFZQWlYj2Hu7Gzq6d9bW7lZbJ3W7dJ3W7dJ3W7dJ3W',
+--'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+--
+--
+---- =========================
+---- USER-ROLE MAPPING
+---- (CHECK YOUR JOIN TABLE NAME!)
+---- =========================
+--
+--INSERT INTO users_roles (user_id, roles_id)
+--SELECT u.id, r.id FROM users u, role r WHERE u.email='admin@test.com' AND r.name='ROLE_ADMIN';
+--
+--INSERT INTO users_roles (user_id, roles_id)
+--SELECT u.id, r.id FROM users u, role r WHERE u.email='analyst@test.com' AND r.name='ROLE_ANALYST';
+--
+--INSERT INTO users_roles (user_id, roles_id)
+--SELECT u.id, r.id FROM users u, role r WHERE u.email='viewer@test.com' AND r.name='ROLE_VIEWER';
+--
+--
+---- =========================
+---- FINANCIAL RECORDS
+---- =========================
+--
+--INSERT INTO financial_record (id, amount, type, category, date, description, created_by_id, created_at, updated_at)
+--SELECT RANDOM_UUID(), 5000, 'INCOME', 'Salary', CURRENT_DATE - 5, 'Monthly salary', u.id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+--FROM users u WHERE u.email='admin@test.com';
+--
+--INSERT INTO financial_record (id, amount, type, category, date, description, created_by_id, created_at, updated_at)
+--SELECT RANDOM_UUID(), 2000, 'EXPENSE', 'Rent', CURRENT_DATE - 3, 'House rent', u.id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+--FROM users u WHERE u.email='admin@test.com';
+--
+--INSERT INTO financial_record (id, amount, type, category, date, description, created_by_id, created_at, updated_at)
+--SELECT RANDOM_UUID(), 1500, 'EXPENSE', 'Food', CURRENT_DATE - 2, 'Groceries', u.id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+--FROM users u WHERE u.email='analyst@test.com';
+--
+--INSERT INTO financial_record (id, amount, type, category, date, description, created_by_id, created_at, updated_at)
+--SELECT RANDOM_UUID(), 3000, 'INCOME', 'Freelance', CURRENT_DATE - 1, 'Side project', u.id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+--FROM users u WHERE u.email='analyst@test.com';
