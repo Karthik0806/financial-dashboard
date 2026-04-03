@@ -24,7 +24,9 @@ A production-ready backend system for managing financial records with secure aut
 - Build Tool: Maven  
 - Containerization: Docker  
 
-3.Project Structure:
+## Project Structure
+3. Project Structure
+```
 com.karthik.dashboard.dashboard
 │
 ├── config          # Security & Data Initialization
@@ -35,7 +37,7 @@ com.karthik.dashboard.dashboard
 ├── repo            # JPA Repositories
 ├── security        # JWT, Filters, Security Utils
 └── service         # Business Logic
-
+```
 4.Api Endpoints:
 | Role    | Email             | Password   |
 |---------|------------------|------------|
@@ -67,7 +69,7 @@ com.karthik.dashboard.dashboard
 4. Acess Application: http://localhost:8080
 
 ## Quick Start
-## Clone → Set JWT_SECRETE → Run → Done
+   Clone → Set JWT_SECRETE → Run → Done
 
 
 ## this project or image has been uploaded to Docker hub
@@ -98,9 +100,16 @@ docker run -d -p 80:8080 -e JWT_SECRETE=your_secret_key karthi2005/finance-dashb
     1). Login → Get JWT Token  
     2). Add Header: Authorization: Bearer <token>  
     3). Call APIs  
-## 	JWT expires in 1 hour
-##	H2 database resets on restart
-##	Ensure correct port configuration in deployment
+
+## Notes	
+  JWT expires in 1 hour (add refresh token, token rotation in development)
+  H2 database resets on restart
+  Ensure correct port configuration in deployment
 
 11.Author:  Karthik Narravula
+
+## final thoughts
+- Use postgresaql in production
+- Use swagger.
+ 
 
