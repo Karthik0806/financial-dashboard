@@ -39,6 +39,7 @@ com.karthik.dashboard.dashboard
 └── service         # Business Logic
 ```
 5. Api Endpoints:
+
 Authentication:
 ```
 	•	Register → POST /api/auth/register
@@ -71,7 +72,7 @@ Analytics:
 
 ## From GitHub
 8. To run locally: (follow the instructions).
-1. Clone Repository:
+- Clone Repository:
 ```
 git clone https://github.com/karthi2005/finance-dashboard.git
 cd finance-dashboard
@@ -81,10 +82,10 @@ export JWT_SECRETE=your_super_secret_key_here
 mvn clean install
 mvn spring-boot:run
 ```
-2. Provide Jwt Environment Variable:  export JWT_SECRETE=your_super_secret_key_here
-3. Build & Run Application: ```mvn clean install```
+- Provide Jwt Environment Variable:  export JWT_SECRETE=your_super_secret_key_here
+- Build & Run Application: ```mvn clean install```
                             ```mvn spring-boot:run```
-4. Acess Application: http://localhost:8080
+- Acess Application: http://localhost:8080
 
 ## Quick Start
    Clone → Set JWT_SECRETE → Run → Done
@@ -139,7 +140,8 @@ karthi2005/finance-dashboard:latest
 10.Author:  Karthik Narravula
 
 ## final thoughts
-- Use postgresaql in production
+- Use postgresql in production
 - Use swagger.
+- use spring actuator in production for monitoring.
  
 
