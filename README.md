@@ -1,8 +1,8 @@
-1.Finance Dashboard Backend:
+1. Finance Dashboard Backend:
 
 A production-ready backend system for managing financial records with secure authentication, role-based access control, and containerized deployment.
 
-2.Features:
+2. Features:
 
 - JWT Authentication & Authorization  
 - Role-Based Access Control (ADMIN, ANALYST, VIEWER)  
@@ -14,7 +14,7 @@ A production-ready backend system for managing financial records with secure aut
 - Clean API Response Structure  
 - Dockerized Application  
 
-2.Tech Stack:
+3. Tech Stack:
 
 - Backend: Spring Boot, Spring Security  
 - Database: H2 (In-Memory)  
@@ -38,34 +38,52 @@ com.karthik.dashboard.dashboard
 ├── security        # JWT, Filters, Security Utils
 └── service         # Business Logic
 ```
-4.Api Endpoints:
+5. Api Endpoints:
+Authentication:
+```
+	•	Register → POST /api/auth/register
+	•	Login → POST /api/auth/login
+```	
+Financial Records:
+```
+	•	Create Record → POST /api/records (ADMIN only)
+	•	Get All Records → GET /api/records?page=0&size=10
+	•	Get Record by ID → GET /api/records/{id}
+	•	Update Record → PUT /api/records/{id} (ADMIN only)
+	•	Delete Record → DELETE /api/records/{id} (ADMIN only)
+```
+Analytics:
+```
+	•	Dashboard Summary → GET /api/records/summary
+	•	Filter Records → GET /api/records/filter?type=INCOME&category=Salary
+	•	Category Summary → GET /api/records/category-summary
+```
+6. Default Users:
+
 | Role    | Email             | Password   |
 |---------|------------------|------------|
 | ADMIN   | admin@test.com   | admin123   |
 | ANALYST | analyst@test.com | analyst123 |
 | VIEWER  | viewer@test.com  | viewer123  |
 
-5.Default Users:
-   1) ADMIN:  
-             email: admin@test.com
-             password: admin123
-   2) ANALYST: 
-             email: analyst@test.com
-             password: analyst123
-   3) VIEWER: 
-             email: viewer@test.com
-             password: viewer123
-
-
-6.Environment Variables:  JWT_SECRETE=your_super_secret_key_here
+7. Environment Variables:  JWT_SECRETE=your_super_secret_key_here
 
 
 ## From GitHub
-7.To run locally: (follow the instructions).
-1. Clone Repository: 
+8. To run locally: (follow the instructions).
+1. Clone Repository:
+```
+git clone https://github.com/karthi2005/finance-dashboard.git
+cd finance-dashboard
+
+export JWT_SECRETE=your_super_secret_key_here
+
+mvn clean install
+mvn spring-boot:run
+```
 2. Provide Jwt Environment Variable:  export JWT_SECRETE=your_super_secret_key_here
-3. Build & Run Application: mvn clean install
-                            mvn spring-boot:run
+3. Build & Run Application: ```mvn clean install```
+                            ```mvn spring-boot:run```
 4. Acess Application: http://localhost:8080
 
 ## Quick Start
@@ -74,28 +92,40 @@ com.karthik.dashboard.dashboard
 
 ## this project or image has been uploaded to Docker hub
 ## Run from Docker Hub
+```
 docker pull karthi2005/finance-dashboard:latest
 docker run -p 8080:8080 karthi2005/finance-dashboard:latest
+```
 
-8.Run with Docker:
 
+## Run with Docker (Local Build)
 
-Build Image: docker build -t finance-dashboard .
-Run Container: docker run -p 8080:8080 -e JWT_SECRETE=your_secret_key finance-dashboard
- Run from Docker Hub: docker run -p 8080:8080 \
+```bash
+docker build -t finance-dashboard .
+
+docker run -p 8080:8080 \
+-e JWT_SECRETE=your_secret_key \
+finance-dashboard
+```
+
+---
+
+## Deployment (AWS EC2)
+
+1. Launch EC2 instance  
+2. Install Docker  
+3. Pull image from Docker Hub  
+4. Run container  
+
+```bash
+docker pull karthi2005/finance-dashboard:latest
+
+docker run -d -p 80:8080 \
 -e JWT_SECRETE=your_secret_key \
 karthi2005/finance-dashboard:latest
+```
 
-9.Deployment (AWS EC2):
-	1.	Launch EC2 instance
-	2.	Install Docker
-	3.	Pull image from Docker Hub
-	4.	Run container
-
-docker pull karthi2005/finance-dashboard:latest
-docker run -d -p 80:8080 -e JWT_SECRETE=your_secret_key karthi2005/finance-dashboard:latest
-
-10.Testing with Postman:
+9.Testing with Postman:
 
     1). Login → Get JWT Token  
     2). Add Header: Authorization: Bearer <token>  
@@ -106,7 +136,7 @@ docker run -d -p 80:8080 -e JWT_SECRETE=your_secret_key karthi2005/finance-dashb
   H2 database resets on restart
   Ensure correct port configuration in deployment
 
-11.Author:  Karthik Narravula
+10.Author:  Karthik Narravula
 
 ## final thoughts
 - Use postgresaql in production
