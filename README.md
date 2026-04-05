@@ -82,7 +82,8 @@ Analytics:
 git clone https://github.com/karthi2005/finance-dashboard.git
 cd finance-dashboard
 
-export JWT_SECRETE=your_super_secret_key_here
+export JWT_SECRET=your_super_secret_key_here
+export CORS_CONFIG=your_frontend_url_here
 
 mvn clean install
 mvn spring-boot:run
@@ -97,14 +98,17 @@ mvn spring-boot:run
 - Acess Application: http://localhost:8080
 
 ## Quick Start
-   Clone → Set JWT_SECRETE → Run → Done
+   Clone → Set JWT_SECRET → CORS_CONFIG → Run → Done
 
 
 ## this project or image has been uploaded to Docker hub
 ## Run from Docker Hub
 ```
 docker pull karthi2005/finance-dashboard:latest
-docker run -p 8080:8080 karthi2005/finance-dashboard:latest
+docker run -p 8080:8080 \
+  -e JWT_SECRET=(YOUR JWT SECRET KEY) \
+  -e CORS_CONFIG="YOUR FRONT END URL) \
+  karthi2005/finance-dashboard:latest
 ```
 
 
