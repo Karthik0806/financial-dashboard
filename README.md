@@ -1,5 +1,5 @@
 
-## Front end: 
+## Front end: (both frontend and backend are deployed on AWS cloud)
 ```
 http://13.127.223.25:3000/
 ```
