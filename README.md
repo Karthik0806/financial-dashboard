@@ -156,8 +156,9 @@ response:
 
 7. Environment Variables:
 
--JWT_SECRET=your_super_secret_key_here
--CORS_CONFIG=your_frontend_url
+ JWT_SECRET=your_super_secret_key_here
+
+ CORS_CONFIG=your_frontend_url
 
 ---
 
