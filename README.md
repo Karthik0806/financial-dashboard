@@ -1,12 +1,15 @@
+
 ## Front end: 
 ```
 http://13.127.223.25:3000/
 ```
+---
 ## Overview
 1. Finance Dashboard Backend:
 
 A production-ready backend system for managing financial records with secure authentication, role-based access control, and containerized deployment.
 
+---
 2. Features:
 
 - JWT Authentication & Authorization  
@@ -19,6 +22,8 @@ A production-ready backend system for managing financial records with secure aut
 - Clean API Response Structure  
 - Dockerized Application  
 
+---
+
 3. Tech Stack:
 
 - Backend: Spring Boot, Spring Security  
@@ -28,7 +33,7 @@ A production-ready backend system for managing financial records with secure aut
 - Mapping: MapStruct  
 - Build Tool: Maven  
 - Containerization: Docker  
-
+---
 ## Project Structure
 3. Project Structure
 ```
@@ -42,27 +47,97 @@ com.karthik.dashboard.dashboard
 ├── repo            # JPA Repositories
 ├── security        # JWT, Filters, Security Utils
 └── service         # Business Logic
+---
 ```
+---
 5. Api Endpoints:
 
-Authentication:
+**Authentication:**
+
+Register → POST /api/auth/register
+
+request:
 ```
-	•	Register → POST /api/auth/register
-	•	Login → POST /api/auth/login
-```	
-Financial Records:
+{
+   "name": "Karthik",
+   "email": "karthik@gmail.com",
+   "password": "123456"
+}
 ```
-	•	Create Record → POST /api/records (ADMIN only)
-	•	Get All Records → GET /api/records?page=0&size=10
-	•	Get Record by ID → GET /api/records/{id}
-	•	Update Record → PUT /api/records/{id} (ADMIN only)
-	•	Delete Record → DELETE /api/records/{id} (ADMIN only)
+response:
 ```
-Analytics:
+{
+   "status": "success",
+   "data": "User registered successfully"
+}
 ```
-	•	Dashboard Summary → GET /api/records/summary
-	•	Filter Records → GET /api/records/filter?type=INCOME&category=Salary
-	•	Category Summary → GET /api/records/category-summary
+Login → POST /api/auth/login
+
+request:
+```
+{
+  "email": "karthik@gmail.com",
+  "password": "123456"
+}
+```
+response:
+```
+{
+  "status": "success",
+  "data": {
+    "token": "jwt-token"
+  }
+}
+```
+
+**Financial Records:**
+
+Create Record → POST /api/records (ADMIN only)
+
+request:
+```
+{
+   "amount": 5000,
+   "type": "INCOME",
+   "category": "Salary",
+   "date": "2026-04-05",
+   "description": "Monthly salary"
+}
+```
+respone: 201 created
+
+
+
+-Get All Records → GET /api/records?page=0&size=10
+
+-Get Record by ID → GET /api/records/{id}
+
+-Update Record → PUT /api/records/{id} (ADMIN only)
+
+-Delete Record → DELETE /api/records/{id} (ADMIN only)
+
+**Analytics:**
+
+-Dashboard Summary → GET /api/records/summary
+
+response:
+```
+{
+  "totalIncome": 10000,
+  "totalExpense": 4000,
+  "netBalance": 6000
+}
+```
+-Filter Records → GET /api/records/filter?type=INCOME&category=Salary
+
+Category Summary → GET /api/records/category-summary
+
+response:
+```
+[
+  { "category": "Food", "total": 2000 },
+  { "category": "Salary", "total": 10000 }
+]
 ```
 6. Default Users:
 
@@ -163,7 +238,7 @@ karthi2005/finance-dashboard:latest
 - implementation of good ui.
 - implementation of jwt token refresh, Oauth2 to improve security.
 - Another separate front end application to create Analyst accounts by admin.
-  ## APIs
+  ## API Breakdown
   check APIs using postman to check their format for frontend implementation
   
  
