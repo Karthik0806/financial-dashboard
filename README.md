@@ -176,6 +176,10 @@ mvn spring-boot:run
 
 // USING DOCKER COMPOSE
  cd finance-dashboard
+
+export JWT_SECRET=your_super_secret_key_here
+export CORS_CONFIG=your_frontend_url_here
+
  docker compose up -d
 ```
 - Provide Jwt Environment Variable:  export JWT_SECRETE=your_super_secret_key_here
