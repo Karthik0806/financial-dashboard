@@ -248,7 +248,7 @@ karthi2005/finance-dashboard:latest
 10.Author:  Karthik Narravula
 
 ---
-## Production final thoughts
+## Production final thoughts (Additional Thoughtfulness)
 - Use postgresql in production
 - Use swagger.
 - use spring actuator in production for monitoring.
