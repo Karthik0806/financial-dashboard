@@ -86,6 +86,10 @@ export JWT_SECRETE=your_super_secret_key_here
 
 mvn clean install
 mvn spring-boot:run
+
+// USING DOCKER COMPOSE
+ cd finance-dashboard
+ docker compose up -d
 ```
 - Provide Jwt Environment Variable:  export JWT_SECRETE=your_super_secret_key_here
 - Build & Run Application: ```mvn clean install```
