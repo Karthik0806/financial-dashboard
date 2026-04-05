@@ -1,3 +1,8 @@
+## Front end: 
+```
+http://13.127.223.25:3000/
+```
+## Overview
 1. Finance Dashboard Backend:
 
 A production-ready backend system for managing financial records with secure authentication, role-based access control, and containerized deployment.
@@ -136,6 +141,9 @@ karthi2005/finance-dashboard:latest
   JWT expires in 1 hour (add refresh token, token rotation in development)
   H2 database resets on restart
   Ensure correct port configuration in deployment
+  In default VIEWER role is assgined during new registration. 
+  No one can change data except with ROLE_ADMIN.
+  Analyst can view records but cannot access or change or add them.
 
 10.Author:  Karthik Narravula
 
@@ -143,5 +151,12 @@ karthi2005/finance-dashboard:latest
 - Use postgresql in production
 - Use swagger.
 - use spring actuator in production for monitoring.
+- implementation of password evaluation in production.
+- implementation of good ui.
+- implementation of jwt token refresh, Oauth2 to improve security.
+- Another separate front end application to create Analyst accounts by admin.
+  ## APIs
+  check APIs using postman to check their format for frontend implementation
+  
  
 
